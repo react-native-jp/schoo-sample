@@ -12,7 +12,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-native"
     ],
     "rules": {
         "accessor-pairs": "error",
@@ -262,6 +263,9 @@
         "wrap-regex": "error",
         "yield-star-spacing": "error",
         "yoda": "error",
-        "react/jsx-uses-vars": "error"
+        "react/jsx-uses-vars": "error",
+        "react-native/no-unused-styles": "error",
+        "react-native/split-platform-components": "error",
+        "react-native/no-inline-styles": "error"
     }
 }
