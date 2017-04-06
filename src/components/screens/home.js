@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Button,
   StyleSheet,
   Text,
   View,
@@ -22,6 +23,14 @@ const styles = StyleSheet.create({
 export default class Home extends React.Component {
   static navigationOptions = {
     title: 'ホーム',
+    header: ({ navigate }) => ({
+      right: (
+        <Button
+          title="撮影"
+          onPress={() => navigate('Camera')}
+        />
+      )
+    })
   }
 
   render() {
@@ -29,12 +38,7 @@ export default class Home extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text
-          style={styles.text}
-          onPress={() => navigate('Camera')}
-        >
-          撮影画面へ
-        </Text>
+        <Text style={styles.text}>TODO: implementations</Text>
       </View>
     );
   }
