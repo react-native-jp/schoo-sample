@@ -2,7 +2,7 @@ import { StackNavigator } from 'react-navigation';
 import Home from './components/screens/home';
 import Camera from './components/screens/camera';
 
-const App = StackNavigator({
+export default StackNavigator({
   Home: {
     screen: Home,
   },
@@ -10,5 +10,3 @@ const App = StackNavigator({
     screen: Camera,
   },
 });
-
-export default App
