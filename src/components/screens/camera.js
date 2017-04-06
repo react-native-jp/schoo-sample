@@ -19,10 +19,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>TODO: implementations</Text>
-    </View>
-  );
+export default class Camera extends React.Component {
+  static navigationOptions = {
+    title: '撮影',
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>TODO: implementations</Text>
+      </View>
+    );
+  }
 }
