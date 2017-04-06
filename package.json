@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "react": "16.0.0-alpha.6",
-    "react-native": "0.43.1"
+    "react-native": "0.43.1",
+    "react-navigation": "git+https://github.com/react-community/react-navigation.git"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
