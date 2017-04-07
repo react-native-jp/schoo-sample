@@ -4,35 +4,12 @@ import {
   CameraRoll,
   FlatList,
   Image,
-  StyleSheet,
   View,
 } from 'react-native';
 import {
   makePairs,
 } from '../../utils';
-import {
-  IMAGE_MARGIN,
-  IMAGE_SIDE_LENGTH,
-} from '../../constants';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  item: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  image: {
-    width: IMAGE_SIDE_LENGTH,
-    height: IMAGE_SIDE_LENGTH,
-    margin: IMAGE_MARGIN / 2,
-  },
-});
+import { home as styles } from '../styles';
 
 export default class Home extends React.Component {
   static navigationOptions = {
