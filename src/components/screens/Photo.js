@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   Image,
   View,
   Text,
-  StyleSheet,
 } from 'react-native';
 import { photo as styles } from '../styles';
 
-export default class Photo extends React.Component {
-  render() {
-    return (
-      <View>
-        <Image
-          source={this.props.source}
-          style={styles.image}
-          resizeMode='center'
-        />
-      </View>
-    );
-  }
+const Photo = ({ account, source }) => (
+  <View>
+    <Image
+      source={source}
+      style={styles.image}
+      resizeMode='center'
+    />
+    <Text
+      style={styles.label}
+    >
+      {account}
+    </Text>
+  </View>
+);
+
+Photo.propTypes = {
+  account: PropTypes.string,
+  source: PropTypes.object.isRequired,
 };
+
+export default Photo;

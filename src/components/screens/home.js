@@ -49,19 +49,12 @@ export default class Home extends React.Component {
   renderItem = ({ item }) => (
     <View style={styles.item}>
       <Photo
+        account="RN Japan"
         source={item.left}
-        style={styles.image}
-        resizeMode='center'
       />
-      <Image
+      <Photo
+        account="besutome"
         source={item.right}
-        style={styles.image}
-        resizeMode='center'
-      />
-      <Image
-        source={item.right}
-        style={styles.image}
-        resizeMode='center'
       />
     </View>
   );

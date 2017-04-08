@@ -6,9 +6,14 @@ import {
 import colors from './colors';
 
 export default StyleSheet.create({
+  label: {
+    textAlign: 'center',
+    color: colors.black,
+    textAlign: 'center',
+  },
   image: {
     width: IMAGE_SIDE_LENGTH,
     height: IMAGE_SIDE_LENGTH,
-    margin: IMAGE_MARGIN / 3,
+    margin: IMAGE_MARGIN / 2,
   },
 });
