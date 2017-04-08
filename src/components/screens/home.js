@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import Photo from './Photo';
+import Thumbnail from '../thumbnail';
 
 import COLORS from '../../colorscheme';
 
@@ -63,11 +63,11 @@ export default class Home extends React.Component {
 
   renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Photo
+      <Thumbnail
         account='RN Japan'
         source={item.left}
       />
-      <Photo
+      <Thumbnail
         account='besutome'
         source={item.right}
       />
