@@ -3,29 +3,47 @@ import {
   Button,
   CameraRoll,
   FlatList,
+  StyleSheet,
   View,
 } from 'react-native';
 import Photo from './Photo';
+
+import {
+  COLORS,
+} from '../../constants';
+
 import {
   makePairs,
 } from '../../utils';
+
 import {
-  home as styles,
-  navigation as navStyles,
-  colors,
-} from '../styles';
+  NAVIGATION_OPTIONS_HEADER_DEFAULT,
+} from '../../app';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.WHITE,
+  },
+  item: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});
 
 export default class Home extends React.Component {
   static navigationOptions = {
     title: 'ホーム',
     header: ({ navigate }) => ({
-      titleStyle: navStyles.title,
-      style: navStyles.navigation,
+      ...NAVIGATION_OPTIONS_HEADER_DEFAULT,
       right: (
         <Button
           title='撮影'
           onPress={() => navigate('Camera')}
-          color={colors.black}
+          color={COLORS.BLACK}
         />
       )
     }),

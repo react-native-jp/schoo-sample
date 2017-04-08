@@ -1,20 +1,31 @@
 import React from 'react';
 import {
+  StyleSheet,
   Text,
   View,
 } from 'react-native';
+
 import {
-  camera as styles,
-  navigation as navStyles,
-} from '../styles';
+  COLORS,
+} from '../../constants';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS.WHITE,
+  },
+  text: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+});
 
 export default class Camera extends React.Component {
   static navigationOptions = {
     title: '撮影',
-    header: () => ({
-      titleStyle: navStyles.title,
-      style: navStyles.navigation,
-    }),
   }
 
   render() {
