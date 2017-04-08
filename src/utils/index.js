@@ -22,12 +22,20 @@ export const makePairs = items => {
   return pairedItems;
 };
 
+const hasOwnProperty = (obj, property) => (
+  Reflect.apply(Object.prototype.hasOwnProperty, obj, [property])
+);
+
 export const deepFreeze = target => {
   Object.freeze(target);
-  for (const key in target) {
+  for (const key in Object.keys(target)) {
+    if (!hasOwnProperty(target, [key])) {
+      continue;
+    }
+
     const value = target[key];
 
-    if (!target.hasOwnProperty(key) || !(typeof value === 'object') || Object.isFrozen(value)) {
+    if (!(typeof value === 'object') || Object.isFrozen(value)) {
       continue;
     }
 
