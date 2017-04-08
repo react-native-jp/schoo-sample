@@ -6,6 +6,7 @@ import {
   Image,
   View,
 } from 'react-native';
+import Photo from './Photo';
 import {
   makePairs,
 } from '../../utils';
@@ -47,7 +48,7 @@ export default class Home extends React.Component {
 
   renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Image
+      <Photo
         source={item.left}
         style={styles.image}
         resizeMode='center'
