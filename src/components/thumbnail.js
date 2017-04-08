@@ -9,9 +9,9 @@ import {
 import {
   IMAGE_SIDE_LENGTH,
   IMAGE_MARGIN,
-} from '../../constants';
+} from '../constants';
 
-import COLORS from '../../colorscheme';
+import COLORS from '../colorscheme';
 
 const styles = StyleSheet.create({
   image: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Photo = ({ account, source }) => (
+export default ({ account, source }) => (
   <View>
     <Image
       source={source}
@@ -35,5 +35,3 @@ const Photo = ({ account, source }) => (
     <Text style={styles.label}>{account}</Text>
   </View>
 );
-
-export default Photo;
