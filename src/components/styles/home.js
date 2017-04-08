@@ -3,13 +3,14 @@ import {
   IMAGE_MARGIN,
   IMAGE_SIDE_LENGTH,
 } from '../../constants';
+import colors from './colors';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: colors.white,
   },
   item: {
     flex: 1,
@@ -19,6 +20,6 @@ export default StyleSheet.create({
   image: {
     width: IMAGE_SIDE_LENGTH,
     height: IMAGE_SIDE_LENGTH,
-    margin: IMAGE_MARGIN / 2,
+    margin: IMAGE_MARGIN / 3,
   },
 });

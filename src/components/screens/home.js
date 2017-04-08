@@ -9,19 +9,26 @@ import {
 import {
   makePairs,
 } from '../../utils';
-import { home as styles } from '../styles';
+import {
+  home as styles,
+  navigation as navStyles,
+  colors,
+} from '../styles';
 
 export default class Home extends React.Component {
   static navigationOptions = {
     title: 'ホーム',
     header: ({ navigate }) => ({
+      titleStyle: navStyles.title,
+      style: navStyles.navigation,
       right: (
         <Button
           title='撮影'
           onPress={() => navigate('Camera')}
+          color={colors.black}
         />
       )
-    })
+    }),
   }
 
   state = {}
@@ -42,6 +49,11 @@ export default class Home extends React.Component {
     <View style={styles.item}>
       <Image
         source={item.left}
+        style={styles.image}
+        resizeMode='center'
+      />
+      <Image
+        source={item.right}
         style={styles.image}
         resizeMode='center'
       />

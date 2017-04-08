@@ -3,11 +3,19 @@ import {
   Text,
   View,
 } from 'react-native';
-import { camera as styles } from '../styles';
+import {
+  camera as styles,
+  navigation as navStyles,
+  colors,
+} from '../styles';
 
 export default class Camera extends React.Component {
   static navigationOptions = {
     title: '撮影',
+    header: () => ({
+      titleStyle: navStyles.title,
+      style: navStyles.navigation,
+    }),
   }
 
   render() {
