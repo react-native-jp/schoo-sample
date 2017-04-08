@@ -6,7 +6,6 @@ import {
 import {
   camera as styles,
   navigation as navStyles,
-  colors,
 } from '../styles';
 
 export default class Camera extends React.Component {

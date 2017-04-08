@@ -3,7 +3,6 @@ import {
   Button,
   CameraRoll,
   FlatList,
-  Image,
   View,
 } from 'react-native';
 import Photo from './Photo';
@@ -49,11 +48,11 @@ export default class Home extends React.Component {
   renderItem = ({ item }) => (
     <View style={styles.item}>
       <Photo
-        account="RN Japan"
+        account='RN Japan'
         source={item.left}
       />
       <Photo
-        account="besutome"
+        account='besutome'
         source={item.right}
       />
     </View>
