@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
   Image,
-  View,
   Text,
+  View,
 } from 'react-native';
 import { photo as styles } from '../styles';
 
@@ -13,17 +13,8 @@ const Photo = ({ account, source }) => (
       style={styles.image}
       resizeMode='center'
     />
-    <Text
-      style={styles.label}
-    >
-      {account}
-    </Text>
+    <Text style={styles.label}>{account}</Text>
   </View>
 );
-
-Photo.propTypes = {
-  account: PropTypes.string,
-  source: PropTypes.object.isRequired,
-};
 
 export default Photo;

@@ -7,7 +7,6 @@ import colors from './colors';
 
 export default StyleSheet.create({
   label: {
-    textAlign: 'center',
     color: colors.black,
     textAlign: 'center',
   },
