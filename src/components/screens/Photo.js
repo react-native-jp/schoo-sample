@@ -7,10 +7,11 @@ import {
 } from 'react-native';
 
 import {
-  COLORS,
   IMAGE_SIDE_LENGTH,
   IMAGE_MARGIN,
 } from '../../constants';
+
+import COLORS from '../../colorscheme';
 
 const styles = StyleSheet.create({
   image: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     margin: IMAGE_MARGIN / 2,
   },
   label: {
-    color: COLORS.BLACK,
+    color: COLORS.LABEL,
     textAlign: 'center',
   },
 });

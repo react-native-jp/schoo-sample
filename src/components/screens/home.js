@@ -8,9 +8,7 @@ import {
 } from 'react-native';
 import Photo from './Photo';
 
-import {
-  COLORS,
-} from '../../constants';
+import COLORS from '../../colorscheme';
 
 import {
   makePairs,
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: COLORS.SCREEN,
   },
   item: {
     flex: 1,
@@ -43,7 +41,7 @@ export default class Home extends React.Component {
         <Button
           title='撮影'
           onPress={() => navigate('Camera')}
-          color={COLORS.BLACK}
+          color={COLORS.BUTTON}
         />
       )
     }),
