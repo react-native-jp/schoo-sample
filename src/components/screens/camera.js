@@ -1,36 +1,56 @@
 import React from 'react';
 import {
+  Button,
   StyleSheet,
-  Text,
-  View,
 } from 'react-native';
+import Camera from 'react-native-camera';
 
 import COLORS from '../../colorscheme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: COLORS.SCREEN,
   },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
 });
 
-export default class Camera extends React.Component {
+export default class extends React.Component {
   static navigationOptions = {
     title: '撮影',
   }
 
+  state = {
+    isCaptured: false,
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>TODO: implementations</Text>
-      </View>
+      <Camera
+        style={styles.container}
+        ref={camera => {
+          this.camera = camera;
+        }}
+        aspect={Camera.constants.Aspect.fill}
+      >
+        <Button
+          title='撮影'
+          onPress={this.takePicture}
+        />
+      </Camera>
     );
+  }
+
+  takePicture = async () => {
+    if (this.state.isCaptured) {
+      return;
+    }
+
+    this.setState({
+      isCaptured: true,
+    });
+
+    await this.camera.capture();
   }
 }
