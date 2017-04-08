@@ -21,3 +21,16 @@ export const makePairs = items => {
 
   return pairedItems;
 };
+
+export const deepFreeze = target => {
+  Object.freeze(target);
+  for (const key in target) {
+    const value = target[key];
+
+    if (!target.hasOwnProperty(key) || !(typeof value === 'object') || Object.isFrozen(value)) {
+      continue;
+    }
+
+    deepFreeze(value);
+  }
+};

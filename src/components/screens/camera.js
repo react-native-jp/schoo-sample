@@ -5,16 +5,14 @@ import {
   View,
 } from 'react-native';
 
-import {
-  COLORS,
-} from '../../constants';
+import COLORS from '../../colorscheme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: COLORS.SCREEN,
   },
   text: {
     fontSize: 20,

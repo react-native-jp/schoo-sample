@@ -7,9 +7,7 @@ import {
 import Home from './components/screens/home';
 import Camera from './components/screens/camera';
 
-import {
-  COLORS,
-} from './constants';
+import COLORS from './colorscheme';
 
 const routes = {
   Home: {
@@ -22,8 +20,8 @@ const routes = {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: COLORS.LIGHTGRAY,
-    shadowColor: COLORS.GRAY,
+    backgroundColor: COLORS.HEADER.BACKGROUND,
+    shadowColor: COLORS.HEADER.SHADOW,
     shadowOffset: {
       width: 0,
       height: 1
@@ -33,7 +31,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontWeight: '300',
-    color: COLORS.BLACK,
+    color: COLORS.HEADER.TITLE,
   },
 });
 
