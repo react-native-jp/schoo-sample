@@ -51,6 +51,8 @@ export default class extends React.Component {
       isCaptured: true,
     });
 
-    await this.camera.capture();
+    const data = await this.camera.capture();
+
+    this.props.navigation.navigate('Detail', { data });
   }
 }
