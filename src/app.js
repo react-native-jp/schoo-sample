@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import Home from './components/screens/home';
 import Camera from './components/screens/camera';
+import Detail from './components/screens/detail';
 
 import COLORS from './colorscheme';
 
@@ -16,6 +17,9 @@ const routes = {
   Camera: {
     screen: Camera,
   },
+  Detail: {
+    screen: Detail,
+  }
 };
 
 const styles = StyleSheet.create({
