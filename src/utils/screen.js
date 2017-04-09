@@ -7,6 +7,11 @@ export const resetAction = NavigationActions.reset({
   actions: [
     NavigationActions.navigate({
       routeName: 'Home',
-    })
+      getPredicate: () => {
+        let remain = 1;
+
+        return () => 0 <= remain--;
+      },
+    }),
   ]
 });
