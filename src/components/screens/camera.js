@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  Button,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import Camera from 'react-native-camera';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import COLORS from '../../colorscheme';
 
@@ -13,6 +14,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: COLORS.SCREEN,
+  },
+  shutter: {
+    backgroundColor: 'transparent',
+    marginBottom: 32,
   },
 });
 
@@ -36,10 +41,16 @@ export default class extends React.Component {
         }}
         aspect={Camera.constants.Aspect.fill}
       >
-        <Button
-          title='撮影'
+        <TouchableOpacity
           onPress={this.takePicture}
-        />
+          style={styles.shutter}
+        >
+          <Icon
+            name='camera'
+            size={64}
+            color={COLORS.SHUTTER}
+          />
+        </TouchableOpacity>
       </Camera>
     );
   }

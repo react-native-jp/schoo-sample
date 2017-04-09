@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  Button,
   CameraRoll,
   FlatList,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Thumbnail from '../thumbnail';
 
 import COLORS from '../../colorscheme';
@@ -30,6 +31,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  button: {
+    marginRight: 8,
+  },
 });
 
 export default class Home extends React.Component {
@@ -38,11 +42,16 @@ export default class Home extends React.Component {
     header: ({ navigate }) => ({
       ...NAVIGATION_OPTIONS_HEADER_DEFAULT,
       right: (
-        <Button
-          title='撮影'
+        <TouchableOpacity
           onPress={() => navigate('Camera')}
-          color={COLORS.BUTTON}
+          style={styles.button}
+        >
+          <Icon
+            name='camera'
+            size={24}
+            color={COLORS.BUTTON}
         />
+        </TouchableOpacity>
       )
     }),
   }

@@ -1,10 +1,11 @@
 import React from 'react';
 import {
-  Button,
   Image,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   resetAction,
 } from '../../utils/screen';
@@ -14,6 +15,7 @@ import {
 import {
   NAVIGATION_OPTIONS_HEADER_DEFAULT,
 } from '../../app';
+import COLORS from '../../colorscheme';
 
 const styles = StyleSheet.create({
   container: {
@@ -33,40 +35,41 @@ const styles = StyleSheet.create({
     height: null,
   },
   button: {
-    height: 32,
+    marginLeft: 8,
   },
 });
 
 export default class Detail extends React.Component {
   static navigationOptions = {
     title: '写真',
-    header: () => ({
+    header: ({ dispatch }) => ({
       ...NAVIGATION_OPTIONS_HEADER_DEFAULT,
-      left: <View />,
+      left: (
+        <TouchableOpacity
+          onPress={() => dispatch(resetAction)}
+          style={styles.button}
+        >
+          <Icon
+            name='home'
+            size={24}
+            color={COLORS.BUTTON}
+          />
+        </TouchableOpacity>
+      ),
     }),
   }
 
   render() {
-    const {
-      state: {
-        params
-      },
-      dispatch,
-    } = this.props.navigation;
+    const { data } = this.props.navigation.state.params;
 
     return (
       <View style={styles.container}>
         <View style={styles.preview}>
           <Image
-            source={{ uri: params.data.mediaUri }}
+            source={{ uri: data.mediaUri }}
             style={styles.image}
           />
         </View>
-        <Button
-          title='戻る'
-          onPress={() => dispatch(resetAction)}
-          style={styles.button}
-        />
       </View>
     );
   }
