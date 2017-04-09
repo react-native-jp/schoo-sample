@@ -11,6 +11,9 @@ import {
 import {
   DEVICE_WIDTH,
 } from '../../constants';
+import {
+  NAVIGATION_OPTIONS_HEADER_DEFAULT,
+} from '../../app';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,9 +40,10 @@ const styles = StyleSheet.create({
 export default class Detail extends React.Component {
   static navigationOptions = {
     title: '写真',
-    header: {
+    header: () => ({
+      ...NAVIGATION_OPTIONS_HEADER_DEFAULT,
       left: <View />,
-    }
+    }),
   }
 
   render() {

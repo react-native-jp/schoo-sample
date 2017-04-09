@@ -49,6 +49,7 @@ Object.freeze(NAVIGATION_OPTIONS_HEADER_DEFAULT);
 export { NAVIGATION_OPTIONS_HEADER_DEFAULT };
 
 const options = {
+  headerMode: 'screen',
   navigationOptions: {
     header: NAVIGATION_OPTIONS_HEADER_DEFAULT,
   },
