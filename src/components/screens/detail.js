@@ -22,11 +22,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 32,
   },
   image: {
@@ -64,12 +59,10 @@ export default class Detail extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.preview}>
-          <Image
-            source={{ uri: data.path }}
-            style={styles.image}
-          />
-        </View>
+        <Image
+          source={{ uri: data.path }}
+          style={styles.image}
+        />
       </View>
     );
   }
