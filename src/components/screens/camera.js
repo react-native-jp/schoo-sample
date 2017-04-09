@@ -66,6 +66,10 @@ export default class extends React.Component {
 
     const data = await this.camera.capture();
 
-    this.props.navigation.navigate('Detail', { data });
+    this.props.navigation.navigate('Detail', {
+      photo: {
+        uri: data.path,
+      },
+    });
   }
 }

@@ -22,11 +22,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 32,
   },
   image: {
@@ -60,16 +55,14 @@ export default class Detail extends React.Component {
   }
 
   render() {
-    const { data } = this.props.navigation.state.params;
+    const { photo } = this.props.navigation.state.params;
 
     return (
       <View style={styles.container}>
-        <View style={styles.preview}>
-          <Image
-            source={{ uri: data.mediaUri }}
-            style={styles.image}
-          />
-        </View>
+        <Image
+          source={photo}
+          style={styles.image}
+        />
       </View>
     );
   }
