@@ -66,7 +66,7 @@ export default class Detail extends React.Component {
       <View style={styles.container}>
         <View style={styles.preview}>
           <Image
-            source={{ uri: data.mediaUri }}
+            source={{ uri: data.path }}
             style={styles.image}
           />
         </View>
