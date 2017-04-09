@@ -58,7 +58,11 @@ export default class Home extends React.Component {
 
   state = {}
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.load();
+  }
+
+  load = async () => {
     const queryResult = await CameraRoll.getPhotos({
       first: 10,
     });
@@ -98,6 +102,14 @@ export default class Home extends React.Component {
 
   render() {
     const { pairedPhotos } = this.state;
+
+    if (this.props.navigation.state.getPredicate) {
+      const needsToReload = this.props.navigation.state.getPredicate();
+
+      if (needsToReload()) {
+        this.load();
+      }
+    }
 
     return (
       <View style={styles.container}>
