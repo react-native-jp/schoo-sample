@@ -70,18 +70,31 @@ export default class Home extends React.Component {
     this.setState({ pairedPhotos });
   }
 
-  renderItem = ({ item }) => (
-    <View style={styles.item}>
-      <Thumbnail
-        account='RN Japan'
-        source={item.left}
-      />
-      <Thumbnail
-        account='besutome'
-        source={item.right}
-      />
-    </View>
-  );
+  renderItem = ({ item }) => {
+    const { navigate } = this.props.navigation;
+
+    return (
+      <View style={styles.item}>
+        <TouchableOpacity
+          onPress={() => navigate('Detail', { photo: item.left })}
+        >
+          <Thumbnail
+            account='RN Japan'
+            source={item.left}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigate('Detail', { photo: item.right })}
+        >
+          <Thumbnail
+            account='besutome'
+            source={item.right}
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  }
 
   render() {
     const { pairedPhotos } = this.state;

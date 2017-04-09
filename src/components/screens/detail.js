@@ -55,12 +55,12 @@ export default class Detail extends React.Component {
   }
 
   render() {
-    const { data } = this.props.navigation.state.params;
+    const { photo } = this.props.navigation.state.params;
 
     return (
       <View style={styles.container}>
         <Image
-          source={{ uri: data.path }}
+          source={photo}
           style={styles.image}
         />
       </View>
