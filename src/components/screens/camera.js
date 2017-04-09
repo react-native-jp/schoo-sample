@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
 
 export default class extends React.Component {
   static navigationOptions = {
-    title: '撮影',
+    header: {
+      visible: false,
+    },
   }
 
   state = {
