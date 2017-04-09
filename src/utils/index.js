@@ -23,7 +23,7 @@ export const makePairs = items => {
 };
 
 const hasOwnProperty = (obj, property) => (
-  Reflect.apply(Object.prototype.hasOwnProperty, obj, [property])
+  Object.prototype.hasOwnProperty.call(obj, property)
 );
 
 export const deepFreeze = target => {
