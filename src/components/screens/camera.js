@@ -1,28 +1,75 @@
 import React from 'react';
 import {
-  Text,
-  View,
+  StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
-import {
-  camera as styles,
-  navigation as navStyles,
-  colors,
-} from '../styles';
+import Camera from 'react-native-camera';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class Camera extends React.Component {
+import COLORS from '../../colorscheme';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: COLORS.SCREEN,
+  },
+  shutter: {
+    backgroundColor: 'transparent',
+    marginBottom: 32,
+  },
+});
+
+export default class extends React.Component {
   static navigationOptions = {
-    title: '撮影',
-    header: () => ({
-      titleStyle: navStyles.title,
-      style: navStyles.navigation,
-    }),
+    header: {
+      visible: false,
+    },
+  }
+
+  state = {
+    isCaptured: false,
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>TODO: implementations</Text>
-      </View>
+      <Camera
+        style={styles.container}
+        ref={camera => {
+          this.camera = camera;
+        }}
+        aspect={Camera.constants.Aspect.fill}
+      >
+        <TouchableOpacity
+          onPress={this.takePicture}
+          style={styles.shutter}
+        >
+          <Icon
+            name='camera'
+            size={64}
+            color={COLORS.SHUTTER}
+          />
+        </TouchableOpacity>
+      </Camera>
     );
+  }
+
+  takePicture = async () => {
+    if (this.state.isCaptured) {
+      return;
+    }
+
+    this.setState({
+      isCaptured: true,
+    });
+
+    const data = await this.camera.capture();
+
+    this.props.navigation.navigate('Detail', {
+      photo: {
+        uri: data.path,
+      },
+    });
   }
 }
