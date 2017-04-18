@@ -12,8 +12,8 @@ import Thumbnail from '../thumbnail';
 import COLORS from '../../colorscheme';
 
 import {
-  makePairs,
-} from '../../utils';
+  IMAGE_MARGIN,
+} from '../../constants';
 
 import {
   NAVIGATION_OPTIONS_HEADER_DEFAULT,
@@ -26,10 +26,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.SCREEN,
   },
-  item: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  row: {
+    marginTop: IMAGE_MARGIN,
   },
   button: {
     marginRight: 8,
@@ -68,40 +66,29 @@ export default class Home extends React.Component {
     });
     const photos = queryResult.edges.map(edge => ({
       uri: edge.node.image.uri,
+      key: edge.node.image.uri,
     }));
-    const pairedPhotos = makePairs(photos);
 
-    this.setState({ pairedPhotos });
+    this.setState({ photos });
   }
 
   renderItem = ({ item }) => {
     const { navigate } = this.props.navigation;
 
     return (
-      <View style={styles.item}>
-        <TouchableOpacity
-          onPress={() => navigate('Detail', { photo: item.left })}
-        >
-          <Thumbnail
-            account='RN Japan'
-            source={item.left}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => navigate('Detail', { photo: item.right })}
-        >
-          <Thumbnail
-            account='besutome'
-            source={item.right}
-          />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        onPress={() => navigate('Detail', { photo: item })}
+      >
+        <Thumbnail
+          account='RN Japan'
+          source={item}
+        />
+      </TouchableOpacity>
     );
   }
 
   render() {
-    const { pairedPhotos } = this.state;
+    const { photos } = this.state;
 
     if (this.props.navigation.state.getPredicate) {
       const needsToReload = this.props.navigation.state.getPredicate();
@@ -114,8 +101,10 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
         <FlatList
-          data={pairedPhotos}
+          data={photos}
           renderItem={this.renderItem}
+          numColumns={2}
+          columnWrapperStyle={styles.row}
         />
       </View>
     );
